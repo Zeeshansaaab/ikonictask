@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('connections', [App\Http\Controllers\HomeController::class, 'connections']);
+Route::post('connections', [App\Http\Controllers\HomeController::class, 'connections']);
 Route::post('connections-in-common', [App\Http\Controllers\HomeController::class, 'connectionsInCommon']);
 Route::post('suggestions', [App\Http\Controllers\HomeController::class, 'suggestions']);
 Route::post('request', [App\Http\Controllers\HomeController::class, 'request']);
