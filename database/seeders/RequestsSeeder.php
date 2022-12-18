@@ -2,21 +2,22 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Connection;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class DatabaseSeeder extends Seeder
+class RequestsSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call(UsersSeeder::class);
-        $this->call(RequestsSeeder::class);
-        // $this->call(ConnectionsInCommonSeeder::class);
+        User::find(1)->connections()->sync([3, 4, 5]);
+        User::find(2)->connections()->sync([3, 4, 5]);
+
     }
 }

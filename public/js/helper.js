@@ -29,31 +29,20 @@ function ajax(url, method, functionsOnSuccess, form) {
   if (typeof functionsOnSuccess === 'undefined') {
     functionsOnSuccess = [];
   }
-
   $.ajax({
     url: url,
     type: method,
     async: true,
-    data: form,
+    data: form, 
     processData: false,
     contentType: false,
-    dataType: 'json',
     error: function(xhr, textStatus, error) {
       console.log(xhr.responseText);
       console.log(xhr.statusText);
       console.log(textStatus);
       console.log(error);
     },
-    success: function(response) {
-      for (var j = 0; j < functionsOnSuccess.length; j++) {
-        for (var i = 0; i < functionsOnSuccess[j][1].length; i++) {
-          if (functionsOnSuccess[j][1][i] == "response") {
-            functionsOnSuccess[j][1][i] = response;
-          }
-        }
-        functionsOnSuccess[j][0].apply(this, functionsOnSuccess[j][1]);
-      }
-    }
+    success: functionsOnSuccess
   });
 }
 
@@ -78,7 +67,7 @@ function exampleUseOfAjaxFunction(exampleVariable) {
 }
 
 function exampleOnSuccessFunction(exampleVariable, response) {
-  // hide skeletons
+  // hide   s
   // show content
 
   console.log(exampleVariable);
